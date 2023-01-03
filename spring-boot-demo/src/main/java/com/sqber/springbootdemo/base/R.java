@@ -6,9 +6,9 @@ package com.sqber.springbootdemo.base;
  */
 public class R {
 
-    private static final int SUCCESS = 200;
-    private static final int ERROR = 500;
-    private static final int ValidateFailure = 410;
+    private static final int SUCCESS = 1;
+    private static final int ERROR = 0;
+    private static final int ValidateFailure = 2;
 
     private int code;
     private Object data;
@@ -53,10 +53,9 @@ public class R {
     /**
      * 成功
      *
-     * @param <T>
      * @return
      */
-    public static <T> R success() {
+    public static R success() {
         return new R(SUCCESS, "", "");
     }
 
@@ -64,10 +63,9 @@ public class R {
      * 成功
      *
      * @param data
-     * @param <T>
      * @return
      */
-    public static <T> R success(T data) {
+    public static R success(Object data) {
         return new R(SUCCESS, "", data);
     }
 
@@ -75,8 +73,8 @@ public class R {
      * 成功
      *
      * @param data
-     * @param <T>
-     * @return
+     * @param msg
+     * @return R
      */
     public static R success(Object data, String msg) {
         return new R(SUCCESS, msg, data);
